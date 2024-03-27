@@ -8,8 +8,22 @@ export const addToStorage = function (obj, key) {
   localStorage.setItem(key, JSON.stringify(storageData));
 };
 
+export const deleteFromStorage = function (obj, key) {
+  const storageData = getFromStorage(key);
+  const index = storageData.findIndex(n => n.id === obj.id);
+  if (index !== -1) {
+    storageData.splice(index, 1);
+  }
+  localStorage.setItem(key, JSON.stringify(storageData));
+};
+
+
 export const generateTestUser = function (User) {
-  localStorage.clear();
+  // localStorage.clear();
+
+  const testAdmin = new User("admin", "qwerty123", true);
+  User.save(testAdmin);
+
   const testUser = new User("test", "qwerty123");
   User.save(testUser);
 };

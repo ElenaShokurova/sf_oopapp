@@ -2,10 +2,11 @@ import { BaseModel } from "./BaseModel";
 import { getFromStorage, addToStorage } from "../utils";
 
 export class User extends BaseModel {
-  constructor(login, password) {
+  constructor(login, password, isAdmin = false) {
     super();
     this.login = login;
     this.password = password;
+    this.isAdmin = isAdmin;
     this.storageKey = "users";
   }
   get hasAccess() {
@@ -17,6 +18,7 @@ export class User extends BaseModel {
     }
     return false;
   }
+
   static save(user) {
     try {
       addToStorage(user, user.storageKey);
