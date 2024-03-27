@@ -309,7 +309,7 @@ export const addUser = function () {
     };
 
         // Функция для удаления пользователя
-        const removeUser = function(login, password) {
+        const removeUser = function( login, password) {
             // Получаем текущих пользователей из локального хранилища
             let users = getFromStorage('users') || [];
             users.innerHTML = '';
@@ -329,6 +329,7 @@ export const addUser = function () {
         const users = getFromStorage('users') || [];
         updateUsersList(users);
     });
+
     updateUsersList(getFromStorage('users') || []);
 
 };

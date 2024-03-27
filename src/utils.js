@@ -19,7 +19,7 @@ export const deleteFromStorage = function (obj, key) {
 
 
 export const generateTestUser = function (User) {
-  // localStorage.clear();
+  localStorage.clear();
 
   const testAdmin = new User("admin", "qwerty123", true);
   User.save(testAdmin);
